@@ -9,7 +9,9 @@ V1 of SolarBotList
 /templates - HTML/Jinja2 Files
 
 This Repository, despite being openly readable is not meant to be redistributed, cloned or self-hosted.  
-Not because I forbid it, but because you have to follow these steps:
+I have not tested this System in Production.
+
+If you want to self-host anyways, follow the following instructions:
 
 * Import `actress.inst` to actress  
 * Create a .env-File with the keys `TOKEN`, `CLIENT_ID`, `CLIENT_SECRET`, `OAUTH_URL` and `REDIRECT_URI`  
