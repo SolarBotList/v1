@@ -12,9 +12,9 @@ load_dotenv()
 app = Flask(__name__)
 client = APIClient(os.getenv("TOKEN"), client_secret=os.getenv("CLIENT_SECRET"))
 
-TEAM = [899722893603274793]
+TEAM = []
 
-app.config["SECRET_KEY"] = "nlewsofierhgridsxgneriodsxhnfdx"
+app.config["SECRET_KEY"] = "..."
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"
 
 db = SQLAlchemy(app)
@@ -281,4 +281,4 @@ def root():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True) # assuming you're hosting via actress or nginx
