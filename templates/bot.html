@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolarBots</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <style> 
+    .checked {
+        color: orange;
+      }</style>
+</head>
+<body style="background-color: #080956;color: #fff;">
+    {%include "navbar.html" %}
+    <img src="{{bot.image_url}}">
+    <hr>
+    <h1>{{bot.name.upper()}}</h1>
+    <img src="{{bot.avatar_url}}" width="64px" height="auto" style="border-radius: 50px;">
+    <textarea disabled class="form-control">{{bot.short}}</textarea>
+    <br>
+    <button onclick="window.open('{{bot.invlink}}')" class="btn btn-success">Invite</button>
+    <button onclick="window.open('/bot/{{bot.id}}/vote')" class="btn btn-success">Vote</button>
+    <hr>
+    <div style="background-color: #fff; border-radius: 10px;">
+        <iframe srcdoc="{{bot.long}}" width="80%" height="50vh"></iframe>
+    </div>
+    <hr>
+    Reviews
+    <hr>
+    {% if VOTEAVRG > 0%}
+    <span class="fa fa-star checked"></span>
+    {%endif%}
+    <span class="fa fa-star"></span>
+    {% if VOTEAVRG > 1%}
+    <span class="fa fa-star checked"></span>
+    {%endif%}
+    <span class="fa fa-star"></span>
+    {% if VOTEAVRG > 2%}
+    <span class="fa fa-star checked"></span>
+    {%endif%}
+    <span class="fa fa-star"></span>
+    {% if VOTEAVRG > 3%}
+    <span class="fa fa-star checked"></span>
+    {%endif%}
+    <span class="fa fa-star"></span>
+    {% if VOTEAVRG > 4%}
+    <span class="fa fa-star checked"></span>
+    {%endif%}
+    <span class="fa fa-star"></span>
+    {% for review in reviews %}
+    <div style="margin: 5px;">
+        <small>{{review.owner}}</small>
+        <p>{{review.text}}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
